@@ -1,0 +1,9 @@
+RewriteEngine On
+#Remove .html suffix
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html  [L]
+
+# 301 permanent redirect all .html to non .html
+RewriteCond %{THE_REQUEST} \.html
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
